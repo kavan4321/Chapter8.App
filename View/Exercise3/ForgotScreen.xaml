@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModel="clr-namespace:Chapter8.ViewModel.Exercise3ViewModel.ForgotViewModel"
              x:Class="Chapter8.View.Exercise3.ForgotScreen"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#130329"
              Title="ForgotScreen">
-  
+    <ContentPage.BindingContext>
+        <ViewModel:ForgotViewModel></ViewModel:ForgotViewModel>
+    </ContentPage.BindingContext>
+    <ScrollView>
     <StackLayout
+        Spacing="10"
         Padding="10,20">
         <Label 
             Margin="0,100,0,20"
-            TextColor="White"
-            FontSize="24"
-            FontFamily="OpenSans-Semibold"
+            Style="{StaticResource Heading}"
             Text="Forgot your password?"/>
+        <Label
+            Style="{StaticResource SmallLable}"
+            Text="Please, enter your e_mail address below to recive your user and new password."/>
+   
+        <Label
+            Margin="0,30,0,0"
+            Style="{StaticResource SmallLable}"
+            Text="E-mail address*"/>
+                  
+        <Border
+            Padding="10,3"
+            Style="{StaticResource EnteryBorder}">
+           
+            <Entry
+                Style="{StaticResource EntryStyle}"
+                Text="{Binding Email}"
+                Placeholder="Please enter e-mail"/>
+        </Border>
+        <Button
+            Command="{Binding ResetCommand}"
+            Style="{StaticResource ButtonStyle}"
+            Text="Reset password"/>
     </StackLayout>
+    </ScrollView>
 </ContentPage>

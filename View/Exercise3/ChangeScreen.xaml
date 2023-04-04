@@ -2,11 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chapter8.View.Exercise3.ChangeScreen"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#130329"
              Title="ChangeScreen">
-    <VerticalStackLayout>
+
+    <ScrollView>
+    <StackLayout
+        Spacing="15"
+        Padding="20">
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            Margin="0,100,0,20"
+            Style="{StaticResource Heading}"
+            Text="Please, enter a new password below."/>
+    </StackLayout>
+    </ScrollView>
 </ContentPage>

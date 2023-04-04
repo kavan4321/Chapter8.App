@@ -6,4 +6,9 @@ public partial class SetScreen : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void ButtonClicked(object sender, EventArgs e)
+    {
+		Navigation.PushAsync(new ChangeScreen());
+    }
 }

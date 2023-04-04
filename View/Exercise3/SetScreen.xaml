@@ -2,11 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chapter8.View.Exercise3.SetScreen"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#130329"
              Title="SetScreen">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+   
+    <StackLayout
+        Spacing="15"
+        Padding="20">
+        <Image
+            Margin="0,100,0,20"
+            HeightRequest="100"
+            WidthRequest="100"
+            Source="dotnet_bot"/>
+        <Label
+            Style="{StaticResource Heading}"
+            HorizontalTextAlignment="Center"
+            Text="Password reset e-mail has been sent"/>
+        <Label
+            Style="{StaticResource SmallLable}"
+            HorizontalTextAlignment="Center"
+            Text="A password reset eamil has been sent to your e-mail address"/>
+        <Button
+            Style="{StaticResource ButtonStyle}"
+            Clicked="ButtonClicked"
+            Text="Set a new password"/>
+    </StackLayout>
 </ContentPage>
