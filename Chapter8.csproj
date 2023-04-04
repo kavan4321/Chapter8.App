@@ -53,12 +53,21 @@
 	  <None Remove="Resources\Images\arrow.png" />
 	  <None Remove="Resources\Images\back.png" />
 	  <None Remove="Resources\Images\confirm.png" />
+	  <None Remove="Resources\Images\correct.svg" />
 	  <None Remove="Resources\Images\degree.png" />
 	  <None Remove="Resources\Images\deletebutton.png" />
+	  <None Remove="Resources\Images\download.svg" />
 	  <None Remove="Resources\Images\facebook.png" />
+	  <None Remove="Resources\Images\facebooktwo.svg" />
 	  <None Remove="Resources\Images\google.png" />
 	  <None Remove="Resources\Images\karve.png" />
+	  <None Remove="Resources\Images\like.svg" />
+	  <None Remove="Resources\Images\location.svg" />
+	  <None Remove="Resources\Images\note.svg" />
+	  <None Remove="Resources\Images\price.svg" />
 	  <None Remove="Resources\Images\search.png" />
+	  <None Remove="Resources\Images\sent.svg" />
+	  <None Remove="Resources\Images\upload.svg" />
 	  <None Remove="Resources\Images\user5.png" />
 	</ItemGroup>
 
@@ -76,6 +85,18 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Exercise2\UserProfileScreen.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Exercise3\ChangeScreen.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Exercise3\ConfirmScreen.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Exercise3\ForgotScreen.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Exercise3\SetScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

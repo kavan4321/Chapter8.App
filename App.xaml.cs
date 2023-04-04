@@ -1,6 +1,7 @@
 ﻿namespace Chapter8;
 using Chapter8.View.Exercise1;
 using Chapter8.View.Exercise2;
+using Chapter8.View.Exercise3;
 
 public partial class App : Application
 {
@@ -8,6 +9,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new NavigationPage(new UserProfileScreen());
+		MainPage = new NavigationPage(new ForgotScreen());
 	}
 }

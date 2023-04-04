@@ -22,14 +22,203 @@
                     Source="arrow"/>
             </StackLayout>
             <Grid
-                Margin="30"
-                Padding="10">
-                <BoxView
-                Margin="0,40"               
-                WidthRequest="500"
-                HeightRequest="100"
-                Rotation="-25"/>
+                Margin="0,80,0,0"
+                RowDefinitions="Auto,Auto,*"
+                Padding="0">
+                <Path
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Fill="DarkRed"
+                    Stroke="Black"
+                    Aspect="Uniform">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure 
+                                            IsClosed="True"
+                                            StartPoint="0,150">
+                                        <PathFigure.Segments>
+                                            <PathSegmentCollection>
+                                                <LineSegment Point="400,100" />
+                                                <LineSegment Point="400,200" />
+                                                <LineSegment Point="0,250" />
+                                            </PathSegmentCollection>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Grid
+                    HorizontalOptions="Center"
+                    Grid.Row="1"
+                    Grid.RowSpan="2">
+                    <Border                      
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 30"
+                        HeightRequest="100"
+                        WidthRequest="100">
+                        <Image
+                            Source="user5"/>
+                    </Border>
+                    <Border  
+                        VerticalOptions="Start"
+                        HorizontalOptions="Center"
+                        BackgroundColor="LightSkyBlue"
+                        Style="{StaticResource BorderStyle}">
+                        <Image
+                            Style="{StaticResource ImageStyle}"
+                            Source="dotnet_bot"/>
+                    </Border>
+                </Grid>
             </Grid>
+
+            
+            <Grid
+                Margin="0,20"
+                RowSpacing="5"
+                RowDefinitions="Auto,Auto"
+                ColumnDefinitions="*,*,*">
+                
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource LabelStyle}"
+                    Text="Applied"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{StaticResource ValueStyle}"
+                    Text="28"/>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelStyle}"
+                    Text="Reviewd"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{StaticResource ValueStyle}"
+                    Text="73"/>
+                
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Style="{StaticResource LabelStyle}"
+                    Text="Contacted"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Style="{StaticResource ValueStyle}"
+                    Text="18"/>
+            </Grid>
+
+            <Label
+                Margin="0,20"
+                FontSize="20"
+                FontAttributes="Bold"
+                Text="Complete Profile"/>
+
+            <Grid
+                Margin="0,20"
+                ColumnDefinitions="*,*"
+                ColumnSpacing="20">
+                <Border
+                    Style="{StaticResource BorderStyle}"
+                    BackgroundColor="LightCyan"
+                    Grid.Column="0">
+                    <StackLayout
+                        Spacing="10"
+                        Padding="20">
+                        <Border
+                            Style="{StaticResource ImageBorder}"
+                            BackgroundColor="White">
+                        <Image
+                            Style="{StaticResource ImageStyle}"
+                            Source="degree"/>
+                        </Border>
+                        <Label
+                            Text="Education"/>
+                        <Grid
+                            RowDefinitions="Auto,Auto"
+                            ColumnDefinitions="*,Auto">
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource ValueStyle}"
+                            Text="02 Steps"/>
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource ValueStyle}"
+                            TextDecorations="Underline"
+                            Text="Left"/>
+                        <Image
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Grid.RowSpan="2"
+                            Style="{StaticResource ImageStyle}"
+                            Rotation="180"
+                            Source="back"/>
+                        </Grid>
+
+                </StackLayout>
+            </Border>
+
+                <Border
+                    BackgroundColor="LightGoldenrodYellow"
+                    Style="{StaticResource BorderStyle}"
+                    Grid.Column="1">
+                    <StackLayout
+                        Spacing="10"
+                        Padding="20">
+                        <Border
+                            Style="{StaticResource ImageBorder}">
+                            <Image
+                                Style="{StaticResource ImageStyle}"
+                                Source="degree"/>
+                        </Border>
+                        <Label
+                             Text="Professional"/>
+                        <Grid
+                            RowDefinitions="Auto,Auto"
+                            ColumnDefinitions="*,Auto">
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource ValueStyle}"
+                                Text="04 Steps"/>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                HorizontalOptions="Start"
+                                Style="{StaticResource ValueStyle}"
+                                TextDecorations="Underline"
+                                Text="Left"/>
+                           
+                            <Image
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Grid.RowSpan="2"
+                                Style="{StaticResource ImageStyle}"
+                                Rotation="180"
+                                Source="back"/>
+                        </Grid>
+                    </StackLayout>
+                </Border>
+            </Grid>
+            <Label
+                VerticalOptions="EndAndExpand"
+                FontAttributes="None"
+                Style="{StaticResource ValueStyle}"
+                TextDecorations="Underline"
+                Text="Buy Pro $23.49"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>
