@@ -1,19 +1,59 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModel="clr-namespace:Chapter8.ViewModel.Exercise3ViewModel.ChangeViewModel"
              x:Class="Chapter8.View.Exercise3.ChangeScreen"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#130329"
              Title="ChangeScreen">
 
+    <ContentPage.BindingContext>
+        <ViewModel:ChangeViewModel></ViewModel:ChangeViewModel>
+    </ContentPage.BindingContext>
     <ScrollView>
-    <StackLayout
-        Spacing="15"
-        Padding="20">
-        <Label 
-            Margin="0,100,0,20"
-            Style="{StaticResource Heading}"
-            Text="Please, enter a new password below."/>
-    </StackLayout>
+        <StackLayout
+            Spacing="5"
+            Padding="20">
+            <ImageButton
+                HorizontalOptions="Start"
+                HeightRequest="25"
+                WidthRequest="25"
+                Source="arrow"/>
+            <Label 
+                Margin="0,120,0,30"
+                Style="{StaticResource Heading}"
+                Text="Please, enter a new password below."/>
+         
+            <Label
+                Style="{StaticResource LightLable}"
+                Text="New password*"/>
+            <Border
+                Style="{StaticResource EnteryBorder}">
+                <Entry
+                    Text="{Binding Password}"
+                    Style="{StaticResource EntryStyle}"
+                    Placeholder="Please enter new password"
+                    IsPassword="True"
+                    ClearButtonVisibility="WhileEditing"/>
+            </Border>
+
+            <Label
+                Margin="0,20,0,0"
+                Style="{StaticResource LightLable}"
+                Text="Confirm a new password*"/>
+            <Border
+                Style="{StaticResource EnteryBorder}">
+                <Entry
+                    Text="{Binding ConfirmPassword}"
+                    Style="{StaticResource EntryStyle}"
+                    Placeholder="Please enter confirm password"
+                    IsPassword="True"
+                    ClearButtonVisibility="WhileEditing"/>
+            </Border>
+            <Button
+                Command="{Binding SaveCommand}"
+                Style="{StaticResource ButtonStyle}"
+                Text="Save"/>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

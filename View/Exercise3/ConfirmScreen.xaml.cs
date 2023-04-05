@@ -6,4 +6,9 @@ public partial class ConfirmScreen : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void ButtonClicked(object sender, EventArgs e)
+    {
+		Navigation.PopToRootAsync();
+    }
 }

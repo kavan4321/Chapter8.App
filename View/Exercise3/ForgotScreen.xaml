@@ -14,7 +14,7 @@
         Spacing="10"
         Padding="10,20">
         <Label 
-            Margin="0,100,0,20"
+            Margin="0,120,0,10"
             Style="{StaticResource Heading}"
             Text="Forgot your password?"/>
         <Label
@@ -23,7 +23,7 @@
    
         <Label
             Margin="0,30,0,0"
-            Style="{StaticResource SmallLable}"
+            Style="{StaticResource LightLable}"
             Text="E-mail address*"/>
                   
         <Border
