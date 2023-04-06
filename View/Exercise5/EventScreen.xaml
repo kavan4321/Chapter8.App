@@ -2,11 +2,300 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chapter8.View.Exercise5.EventScreen"
-             Title="EventScreen">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="EventScreen"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#0D0907}">
+
+    <ContentPage.Resources>
+
+        <Style
+            x:Key="Theme"
+            TargetType="Label">
+            <Setter
+                Property="TextColor"
+                Value="{AppThemeBinding Light=Black, Dark=White}"/>
+        </Style>
+        <Style
+            x:Key="EventHeading"
+            TargetType="Label"
+            BasedOn="{StaticResource Theme}">
+            <Setter
+                Property="FontSize"
+                Value="32"/>
+            <Setter
+                Property="FontFamily"
+                Value="OpenSans-Semibold"/>
+        </Style>
+
+        
+        
+        <Style
+            x:Key="EventTimeLabel"
+            TargetType="Label">
+            <Setter
+                Property="TextColor"             
+                Value="{AppThemeBinding Light=Gray, Dark=DeepPink}"/>
+            <Setter
+                Property="FontSize"
+                Value="16"/>
+            <Setter
+                Property="FontAttributes"
+                Value="Bold"/>
+        </Style>
+
+
+        <Style
+            x:Key="ImageBorderTheme"
+            TargetType="Border">
+            <Setter
+                Property="BackgroundColor"
+                Value="{AppThemeBinding Light=GhostWhite, Dark=#191919}"/>
+        </Style>
+
+        
+        <Style
+            x:Key="EventTxtLabel"
+            TargetType="Label">
+            <Setter
+                Property="FontSize"
+                Value="15"/>
+            <Setter
+                Property="TextColor"
+                Value="{AppThemeBinding Light=Black, Dark=Gray}"/>
+        </Style>
+
+        
+        <Style
+            x:Key="EventBorderTheme"
+            TargetType="Border">
+            <Setter
+                Property="BackgroundColor"
+                Value="{AppThemeBinding Light=#FAF9F6, Dark=#3D3D3D}"/>
+            <Setter
+                Property="StrokeShape"
+                Value="RoundRectangle 25,25,0,0"/>
+            <Setter
+                Property="StrokeThickness"
+                Value="0"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <StackLayout>
+            <Image
+                HeightRequest="200"
+                BackgroundColor="LightCyan"
+                Source="tylor"/>
+            <Label 
+                Margin="10"
+                Style="{StaticResource EventHeading}"
+                Text="Tylor Swift"/>
+            <StackLayout
+                Margin="10,0,10,20"
+                Orientation="Horizontal">
+                <Label
+                    Style="{StaticResource EventTimeLabel}"
+                    Text="Oct 08, 19:30 - 21:00"/>
+                <Image                    
+                    HorizontalOptions="EndAndExpand"
+                    HeightRequest="20"
+                    Rotation="270"
+                    Source="arrow"/>
+            </StackLayout>
+         
+            
+            <Line
+                Margin="0,10"
+                HeightRequest="1"
+                BackgroundColor="Gray"/>
+          
+            
+            
+            <HorizontalStackLayout
+                Margin="10"
+                Spacing="10">
+               
+                <Border
+                    StrokeShape="RoundRectangle 35"
+                    HeightRequest="35"
+                    WidthRequest="35">
+                    <Image
+                        Source="selena"/>
+                </Border>
+               
+                <Border
+                    StrokeShape="RoundRectangle 35"
+                    HeightRequest="35"
+                    WidthRequest="35">
+                    <Image
+                        Source="tony"/>
+                </Border>
+              
+                <Border
+                    StrokeShape="RoundRectangle 35"
+                    HeightRequest="35"
+                    WidthRequest="35">
+                    <Image
+                        Source="virat"/>
+                </Border>
+               
+                <Border
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 35"
+                    Style="{StaticResource EventBorderTheme}"
+                    HeightRequest="35"
+                    WidthRequest="35">
+                    <Label
+                        Style="{StaticResource Theme}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Text="+3"/>
+                </Border>
+                
+            </HorizontalStackLayout>
+
+
+            <Grid
+                Margin="10"
+                RowDefinitions="Auto,Auto,Auto"
+                ColumnDefinitions="Auto,*"
+                ColumnSpacing="10"
+                RowSpacing="15">
+               
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HeightRequest="25"
+                    WidthRequest="25"
+                    Rotation="270"
+                    Source="price"/>
+          
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{StaticResource EventTxtLabel}"
+                    Text="$98 - $180"/>
+
+                <Image
+                    VerticalOptions="Start"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HeightRequest="25"
+                    WidthRequest="25"
+                    Source="note"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{StaticResource EventTxtLabel}"
+                    Text="Quisque vestibulum diam ut dignissim ultrices. Nam et ipsum eleifend, condimentum ante vel,molestie mangna."/>
+              
+                
+                <Image
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HeightRequest="25"
+                    WidthRequest="25"
+                    VerticalOptions="Start"
+                    Source="location"/>
+
+                <Grid
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    ColumnSpacing="20"
+                    ColumnDefinitions="*,Auto">
+
+                    <Label
+                        Grid.Column="0"
+                        Style="{StaticResource EventTxtLabel}"
+                        Text="Mudan Banquest Hall 151 Noe St, San Francisco CA 94114"/>
+                    <Border
+                        Grid.Column="1"
+                        WidthRequest="100"
+                        StrokeShape="RoundRectangle 100"
+                        VerticalOptions="StartAndExpand">
+                        <Image                                                                              
+                            Source="thor"/>
+                    </Border>
+                </Grid>
+            </Grid>
+         
+            <Line
+                Margin="0,10,0,5"
+                HeightRequest="1"
+                BackgroundColor="Gray"/>
+
+            <Grid
+                Margin="0,10"
+                Padding="10"
+                ColumnDefinitions="*,*,*,*">
+                
+                <HorizontalStackLayout
+                    Spacing="5"
+                    Grid.Column="0"
+                    HorizontalOptions="Center">
+                    <Image
+                        HeightRequest="25"
+                        WidthRequest="25"
+                        Source="like"/>
+                    <Label
+                        Text="26"
+                        VerticalOptions="Center"
+                        TextColor="Gray"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout
+                    Spacing="5"
+                    Grid.Column="1"
+                    HorizontalOptions="Center">
+                    <Image
+                        HeightRequest="25"
+                        WidthRequest="25"
+                        Source="download"/>
+                    <Label
+                        Text="5k"
+                        VerticalOptions="Center"
+                        TextColor="Gray"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout
+                    Spacing="5"
+                    Grid.Column="2"
+                    HorizontalOptions="Center">
+                    <Image
+                        HeightRequest="25"
+                        WidthRequest="25"
+                        Source="upload"/>
+                    <Label
+                        Text="135"
+                        VerticalOptions="Center"
+                        TextColor="Gray"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout
+                    Spacing="5"
+                    Grid.Column="3"
+                    HorizontalOptions="Center">
+                    <Image
+                        HeightRequest="20"
+                        WidthRequest="20"
+                        Source="facebooktwo"/>
+                    <Label
+                        Text="26"
+                        VerticalOptions="Center"
+                        TextColor="Gray"/>
+                </HorizontalStackLayout>
+            </Grid>
+
+
+            <Border
+                Padding="20,20,20,10"
+                Style="{StaticResource EventBorderTheme}">
+                <Button
+                    CornerRadius="30"
+                    FontAttributes="Bold"
+                    BackgroundColor="IndianRed"
+                    Text="SHOW ME 67 DEALS"/>
+            </Border>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
