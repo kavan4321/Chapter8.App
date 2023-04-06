@@ -99,10 +99,12 @@ namespace Chapter8.ViewModel.Exercise4ViewModel.ViewModelChat
                 if(item.UnReadMsg > 0)
                 {
                     item.IsRead = false;
+                    item.IsOnline = true;
                 }
                 else
                 {
                     item.IsRead = true;
+                    item.IsOnline= false;
                 }
             }
         }

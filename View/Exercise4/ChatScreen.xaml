@@ -46,13 +46,66 @@
 
             <CollectionView
                 ItemsSource="{Binding ChatStories}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout
+                        Orientation="Horizontal"
+                        ItemSpacing="7"/>
+                </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label
-                            Text="{Binding Name}"/>
+                        <Border
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 35">
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="70"
+                                WidthRequest="70"
+                                Source="{Binding ImageSource}"/>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>    
+            </CollectionView>
+
+            <Label
+                Margin="0,20"
+                Style="{StaticResource LabelColor}"
+                Text="Recent Chats"/>
+            <CollectionView
+                ItemsSource="{Binding Chats}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout
+                        Orientation="Vertical"
+                        ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            ColumnSpacing="10"
+                            ColumnDefinitions="Auto,*,Auto">
+                            <Border
+                                Grid.Column="0"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 35">
+                                <Image
+                                    Aspect="AspectFill"
+                                    HeightRequest="70"
+                                    WidthRequest="70"
+                                    Source="{Binding ImageSource}"/>
+                            </Border>
+                            <VerticalStackLayout
+                                Grid.Column="1">
+                                <Label
+                                    Style="{StaticResource LabelColor}"
+                                    Text="{Binding Name}"/>
+                                <Label
+                                    LineBreakMode="TailTruncation"
+                                    Text="{Binding Description}"/>
+                            </VerticalStackLayout>
+                            
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ScrollView>
 </ContentPage>

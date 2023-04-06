@@ -9,5 +9,6 @@ namespace Chapter8.Model
         public int UnReadMsg { get; set; }
         public bool IsRead { get; set; }
         public bool IsStoryPost { get; set; } 
+        public bool IsOnline { get; set; }
     }
 }
