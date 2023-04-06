@@ -11,12 +11,52 @@
         <ViewModel:ChatViewModel></ViewModel:ChatViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
+       
         <Style
-            x:Key="LabelColor"
+            x:Key="LabelTheme"
             TargetType="Label">
             <Setter
                 Property="TextColor"
                 Value="{AppThemeBinding Dark=White, Light=RoyalBlue}"/>
+        </Style>
+
+        <Style
+            x:Key="BorderTheme"
+            TargetType="Border">
+            <Setter
+                Property="BackgroundColor"
+                Value="{AppThemeBinding Dark=White, Light=RoyalBlue}"/>
+        </Style>
+        
+        
+        <Style
+            x:Key="HeadingTheme"
+            TargetType="Label"
+            BasedOn="{StaticResource LabelTheme}">
+            <Setter
+                Property="FontSize"
+                Value="14"/>
+            <Setter
+                Property="FontAttributes"
+                Value="Bold"/>
+        </Style>
+
+
+        <Style
+            x:Key="BorderLabelTheme"
+            TargetType="Label">
+            <Setter
+                Property="TextColor"
+                Value="{AppThemeBinding Light=White, Dark=Gray}"/>
+            <Setter
+                Property="FontSize"
+                Value="12"/>
+            <Setter
+                Property="HorizontalOptions"
+                Value="Center"/>
+            <Setter
+                Property="VerticalOptions"
+                Value="Center"/>
         </Style>
     </ContentPage.Resources>
   
@@ -27,9 +67,8 @@
             Padding="10,20">
             
             <Label
-                FontSize="28"
-                FontAttributes="Bold"
-                Style="{StaticResource LabelColor}"
+                FontSize="26"
+                Style="{StaticResource HeadingTheme}"
                 Text="Let's Chat"/>
             
             <Border
@@ -37,11 +76,10 @@
                 <SearchBar
                     Placeholder="Search Friends"></SearchBar>
             </Border>
+          
             <Label
                 Margin="0,20,0,0"
-                FontAttributes="Bold"
-                FontSize="14"
-                Style="{StaticResource LabelColor}"
+                Style="{StaticResource HeadingTheme}"
                 Text="Friend's Stories"/>
 
             <CollectionView
@@ -58,18 +96,22 @@
                             StrokeShape="RoundRectangle 35">
                             <Image
                                 Aspect="AspectFill"
-                                HeightRequest="70"
-                                WidthRequest="70"
+                                HeightRequest="60"
+                                WidthRequest="60"
                                 Source="{Binding ImageSource}"/>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+         
+            
             <Label
-                Margin="0,20"
-                Style="{StaticResource LabelColor}"
+                Margin="0,20,0,10"
+                Style="{StaticResource HeadingTheme}"
                 Text="Recent Chats"/>
+                     
+                   
             <CollectionView
                 ItemsSource="{Binding Chats}">
                 <CollectionView.ItemsLayout>
@@ -81,27 +123,70 @@
                     <DataTemplate>
                         <Grid
                             ColumnSpacing="10"
-                            ColumnDefinitions="Auto,*,Auto">
+                            ColumnDefinitions="Auto,*,Auto"
+                            RowDefinitions="Auto,Auto">
                             <Border
                                 Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
                                 StrokeThickness="0"
                                 StrokeShape="RoundRectangle 35">
                                 <Image
                                     Aspect="AspectFill"
-                                    HeightRequest="70"
-                                    WidthRequest="70"
+                                    HeightRequest="60"
+                                    WidthRequest="60"
                                     Source="{Binding ImageSource}"/>
                             </Border>
-                            <VerticalStackLayout
-                                Grid.Column="1">
-                                <Label
-                                    Style="{StaticResource LabelColor}"
+
+                            <HorizontalStackLayout
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                VerticalOptions="End"
+                                Spacing="20">
+                                <Label                                                            
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    Style="{StaticResource LabelTheme}"
                                     Text="{Binding Name}"/>
-                                <Label
-                                    LineBreakMode="TailTruncation"
-                                    Text="{Binding Description}"/>
-                            </VerticalStackLayout>
-                            
+                                <BoxView
+                                    IsVisible="{Binding IsOnline}"
+                                    VerticalOptions="Center"
+                                    HeightRequest="15"
+                                    WidthRequest="15"
+                                    CornerRadius="15"
+                                    Color="GreenYellow"/>
+                            </HorizontalStackLayout>
+
+                            <Label
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                VerticalOptions="Start"
+                                TextColor="Gray"
+                                LineBreakMode="TailTruncation"
+                                Text="{Binding Description}"/>
+                           
+                            <Label
+                                VerticalOptions="End"
+                                TextColor="Gray"
+                                IsVisible="{Binding IsLastSeen}"
+                                Grid.Column="2"
+                                Grid.Row="0"
+                                Text="{Binding LastSeen}"/>
+
+                            <Border
+                                Grid.Row="1"
+                                StrokeShape="RoundRectangle 25"
+                                HeightRequest="25"
+                                WidthRequest="25"
+                                Style="{StaticResource BorderTheme}"
+                                IsVisible="{Binding IsRead}"
+                                VerticalOptions="Start"                               
+                                Grid.Column="2">
+                               
+                                <Label  
+                                    Style="{StaticResource BorderLabelTheme}"
+                                    Text="{Binding UnReadMsg}"/>
+                            </Border>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
